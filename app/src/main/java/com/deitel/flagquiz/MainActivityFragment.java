@@ -216,7 +216,7 @@ public class MainActivityFragment extends Fragment {
 
         // randomly replace one Button with the correct answer
         int row = random.nextInt(guessRows); // pick random row
-        int column = random.nextInt(2); // pick random column
+        int column = 0; // pick random column
         LinearLayout randomRow = guessLinearLayouts[row]; // get the row
         String countryName = getCountryName(correctAnswer);
         ((Button) randomRow.getChildAt(column)).setText(countryName);

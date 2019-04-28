@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
       // if running on phone-sized device, allow only portrait orientation
       if (phoneDevice)
          setRequestedOrientation(
-            ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+            ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
    }
 
    // called after onCreate completes execution
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
       int orientation = getResources().getConfiguration().orientation;
 
       // display the app's menu only in portrait orientation
-      if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+      if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
          // inflate the menu
          getMenuInflater().inflate(R.menu.menu_main, menu);
          return true;
