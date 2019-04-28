@@ -50,6 +50,7 @@ public class MainActivityFragment extends Fragment {
     private SecureRandom random; // used to randomize the quiz
     private Handler handler; // used to delay loading next flag
     private Animation shakeAnimation; // animation for incorrect guess
+    private Animation correctShakeAnimation; // animation for correct guess
 
     private LinearLayout quizLinearLayout; // layout that contains the quiz
     private TextView questionNumberTextView; // shows current question #
@@ -74,6 +75,11 @@ public class MainActivityFragment extends Fragment {
         shakeAnimation = AnimationUtils.loadAnimation(getActivity(),
                 R.anim.incorrect_shake);
         shakeAnimation.setRepeatCount(3); // animation repeats 3 times
+
+        // load the shake animation that's used for correct answers
+        correctShakeAnimation = AnimationUtils.loadAnimation(getActivity(),
+                R.anim.correct_shake);
+        correctShakeAnimation.setRepeatCount(3); // animation repeats 3 times
 
         // get references to GUI components
         quizLinearLayout =
@@ -288,6 +294,7 @@ public class MainActivityFragment extends Fragment {
                                 getContext().getTheme()));
 
                 disableButtons(); // disable all guess Buttons
+                flagImageView.startAnimation(correctShakeAnimation);
 
                 // if the user has correctly identified FLAGS_IN_QUIZ flags
                 if (correctAnswers == FLAGS_IN_QUIZ) {
