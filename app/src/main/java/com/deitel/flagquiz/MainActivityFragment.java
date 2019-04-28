@@ -111,7 +111,7 @@ public class MainActivityFragment extends Fragment {
         // get the number of guess buttons that should be displayed
         String choices =
                 sharedPreferences.getString(MainActivity.CHOICES, null);
-        guessRows = Integer.parseInt(choices) / 2;
+        guessRows = Integer.parseInt(choices);
 
         // hide all quess button LinearLayouts
         for (LinearLayout layout : guessLinearLayouts)
